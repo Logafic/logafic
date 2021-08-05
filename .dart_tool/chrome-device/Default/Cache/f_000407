@@ -1,0 +1,363 @@
+define(['dart_sdk', 'packages/firebase_auth/firebase_auth.dart', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/get/get_rx/src/rx_types/rx_types.dart', 'packages/logafic/data_model/user_model.dart', 'packages/logafic/controllers/authController.dart', 'packages/firebase_storage/firebase_storage.dart', 'packages/firebase_storage_platform_interface/src/settable_metadata.dart', 'packages/logafic/data_model/user_profile_model.dart', 'packages/get/get_navigation/src/routes/route_middleware.dart', 'packages/get/get_core/src/get_main.dart', 'packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart', 'packages/image_picker_platform_interface/src/types/picked_file/html.dart', 'packages/get/get_instance/src/extension_instance.dart'], (function load__packages__logafic__controllers__userInformationController_dart(dart_sdk, packages__firebase_auth__firebase_auth$46dart, packages__cloud_firestore__cloud_firestore$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__get__get_rx__src__rx_types__rx_types$46dart, packages__logafic__data_model__user_model$46dart, packages__logafic__controllers__authController$46dart, packages__firebase_storage__firebase_storage$46dart, packages__firebase_storage_platform_interface__src__settable_metadata$46dart, packages__logafic__data_model__user_profile_model$46dart, packages__get__get_navigation__src__routes__route_middleware$46dart, packages__get__get_core__src__get_main$46dart, packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart, packages__image_picker_platform_interface__src__types__picked_file__html$46dart, packages__get__get_instance__src__extension_instance$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const io = dart_sdk.io;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const firebase_auth = packages__firebase_auth__firebase_auth$46dart.firebase_auth;
+  const cloud_firestore = packages__cloud_firestore__cloud_firestore$46dart.cloud_firestore;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const rx_types = packages__get__get_rx__src__rx_types__rx_types$46dart.get_rx__src__rx_types__rx_types;
+  const user_model = packages__logafic__data_model__user_model$46dart.data_model__user_model;
+  const authController$ = packages__logafic__controllers__authController$46dart.controllers__authController;
+  const firebase_storage = packages__firebase_storage__firebase_storage$46dart.firebase_storage;
+  const settable_metadata = packages__firebase_storage_platform_interface__src__settable_metadata$46dart.src__settable_metadata;
+  const user_profile_model = packages__logafic__data_model__user_profile_model$46dart.data_model__user_profile_model;
+  const extension_navigation = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__extension_navigation;
+  const snack = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__snackbar__snack;
+  const get_controllers = packages__get__get_navigation__src__routes__route_middleware$46dart.get_state_manager__src__simple__get_controllers;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  const firebase_auth_exception = packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart.src__firebase_auth_exception;
+  const html = packages__image_picker_platform_interface__src__types__picked_file__html$46dart.src__types__picked_file__html;
+  const extension_instance = packages__get__get_instance__src__extension_instance$46dart.get_instance__src__extension_instance;
+  var userInformationController = Object.create(dart.library);
+  var $isNotEmpty = dartx.isNotEmpty;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    RxnOfUser: () => (T.RxnOfUser = dart.constFn(rx_types.Rxn$(firebase_auth.User)))(),
+    RxnOfUserModel: () => (T.RxnOfUserModel = dart.constFn(rx_types.Rxn$(user_model.UserModel)))(),
+    IdentityMapOfString$String: () => (T.IdentityMapOfString$String = dart.constFn(_js_helper.IdentityMap$(core.String, core.String)))(),
+    FutureOfNull: () => (T.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
+    UserCredentialToFutureOfNull: () => (T.UserCredentialToFutureOfNull = dart.constFn(dart.fnType(T.FutureOfNull(), [firebase_auth.UserCredential])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: userInformationController.UploadType.prototype,
+        [_name$]: "UploadType.profileFile",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: userInformationController.UploadType.prototype,
+        [_name$]: "UploadType.bannerFile",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], userInformationController.UploadType);
+    }
+  }, false);
+  var C = Array(3).fill(void 0);
+  var I = ["package:logafic/controllers/userInformationController.dart"];
+  var _name$ = dart.privateName(userInformationController, "_name");
+  userInformationController.UploadType = class UploadType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (userInformationController.UploadType.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = userInformationController.UploadType.prototype;
+  dart.addTypeTests(userInformationController.UploadType);
+  dart.addTypeCaches(userInformationController.UploadType);
+  dart.setLibraryUri(userInformationController.UploadType, I[0]);
+  dart.setFieldSignature(userInformationController.UploadType, () => ({
+    __proto__: dart.getFields(userInformationController.UploadType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(userInformationController.UploadType, ['toString']);
+  userInformationController.UploadType.profileFile = C[0] || CT.C0;
+  userInformationController.UploadType.bannerFile = C[1] || CT.C1;
+  userInformationController.UploadType.values = C[2] || CT.C2;
+  var dropdownCity = dart.privateName(userInformationController, "UserInformationController.dropdownCity");
+  var dropdownGender = dart.privateName(userInformationController, "UserInformationController.dropdownGender");
+  var birtday = dart.privateName(userInformationController, "UserInformationController.birtday");
+  var fileProfileImage = dart.privateName(userInformationController, "UserInformationController.fileProfileImage");
+  var fileBannerImage = dart.privateName(userInformationController, "UserInformationController.fileBannerImage");
+  var emailController = dart.privateName(userInformationController, "UserInformationController.emailController");
+  var passwordController = dart.privateName(userInformationController, "UserInformationController.passwordController");
+  var uniEmailController = dart.privateName(userInformationController, "UserInformationController.uniEmailController");
+  var userNameEditingController = dart.privateName(userInformationController, "UserInformationController.userNameEditingController");
+  var universityEditingController = dart.privateName(userInformationController, "UserInformationController.universityEditingController");
+  var departmentEditingController = dart.privateName(userInformationController, "UserInformationController.departmentEditingController");
+  var webSiteEditingController = dart.privateName(userInformationController, "UserInformationController.webSiteEditingController");
+  var linkedinEditingController = dart.privateName(userInformationController, "UserInformationController.linkedinEditingController");
+  var instagramEditingController = dart.privateName(userInformationController, "UserInformationController.instagramEditingController");
+  var twitterEditingController = dart.privateName(userInformationController, "UserInformationController.twitterEditingController");
+  var biographyEditingController = dart.privateName(userInformationController, "UserInformationController.biographyEditingController");
+  var firebaseUser = dart.privateName(userInformationController, "UserInformationController.firebaseUser");
+  var firestoreUser = dart.privateName(userInformationController, "UserInformationController.firestoreUser");
+  var _auth = dart.privateName(userInformationController, "_auth");
+  var _db = dart.privateName(userInformationController, "_db");
+  userInformationController.UserInformationController = class UserInformationController extends get_controllers.GetxController {
+    get dropdownCity() {
+      return this[dropdownCity];
+    }
+    set dropdownCity(value) {
+      this[dropdownCity] = value;
+    }
+    get dropdownGender() {
+      return this[dropdownGender];
+    }
+    set dropdownGender(value) {
+      this[dropdownGender] = value;
+    }
+    get birtday() {
+      return this[birtday];
+    }
+    set birtday(value) {
+      this[birtday] = value;
+    }
+    get fileProfileImage() {
+      return this[fileProfileImage];
+    }
+    set fileProfileImage(value) {
+      this[fileProfileImage] = value;
+    }
+    get fileBannerImage() {
+      return this[fileBannerImage];
+    }
+    set fileBannerImage(value) {
+      this[fileBannerImage] = value;
+    }
+    get emailController() {
+      return this[emailController];
+    }
+    set emailController(value) {
+      this[emailController] = value;
+    }
+    get passwordController() {
+      return this[passwordController];
+    }
+    set passwordController(value) {
+      this[passwordController] = value;
+    }
+    get uniEmailController() {
+      return this[uniEmailController];
+    }
+    set uniEmailController(value) {
+      this[uniEmailController] = value;
+    }
+    get userNameEditingController() {
+      return this[userNameEditingController];
+    }
+    set userNameEditingController(value) {
+      this[userNameEditingController] = value;
+    }
+    get universityEditingController() {
+      return this[universityEditingController];
+    }
+    set universityEditingController(value) {
+      this[universityEditingController] = value;
+    }
+    get departmentEditingController() {
+      return this[departmentEditingController];
+    }
+    set departmentEditingController(value) {
+      this[departmentEditingController] = value;
+    }
+    get webSiteEditingController() {
+      return this[webSiteEditingController];
+    }
+    set webSiteEditingController(value) {
+      this[webSiteEditingController] = value;
+    }
+    get linkedinEditingController() {
+      return this[linkedinEditingController];
+    }
+    set linkedinEditingController(value) {
+      this[linkedinEditingController] = value;
+    }
+    get instagramEditingController() {
+      return this[instagramEditingController];
+    }
+    set instagramEditingController(value) {
+      this[instagramEditingController] = value;
+    }
+    get twitterEditingController() {
+      return this[twitterEditingController];
+    }
+    set twitterEditingController(value) {
+      this[twitterEditingController] = value;
+    }
+    get biographyEditingController() {
+      return this[biographyEditingController];
+    }
+    set biographyEditingController(value) {
+      this[biographyEditingController] = value;
+    }
+    get firebaseUser() {
+      return this[firebaseUser];
+    }
+    set firebaseUser(value) {
+      this[firebaseUser] = value;
+    }
+    get firestoreUser() {
+      return this[firestoreUser];
+    }
+    set firestoreUser(value) {
+      this[firestoreUser] = value;
+    }
+    onClose() {
+      this.userNameEditingController.dispose();
+      this.universityEditingController.dispose();
+      this.departmentEditingController.dispose();
+      this.webSiteEditingController.dispose();
+      this.linkedinEditingController.dispose();
+      this.instagramEditingController.dispose();
+      this.twitterEditingController.dispose();
+      this.biographyEditingController.dispose();
+      super.onClose();
+    }
+    uploadFile(file, imageName) {
+      return async.async(core.String, function* uploadFile() {
+        try {
+          let authController = authController$.AuthController.to;
+          let ref = firebase_storage.FirebaseStorage.instance.ref().child("users").child(dart.nullCheck(authController.firebaseUser.value).uid + "-" + imageName + ".jpg");
+          let metadata = new settable_metadata.SettableMetadata.new({contentType: "image/jpeg", customMetadata: new (T.IdentityMapOfString$String()).from(["picked-file-path", file.path])});
+          if (true) {
+            yield ref.putData(yield file.readAsBytes(), metadata);
+          } else {
+            yield ref.putFile(io.File.new(file.path), metadata);
+          }
+          return yield ref.getDownloadURL();
+        } catch (e) {
+          let err = dart.getThrown(e);
+          if (core.Object.is(err)) {
+            core.print(err);
+          } else
+            throw e;
+        }
+        return "";
+      });
+    }
+    onPressedButton(context) {
+      return async.async(dart.void, (function* onPressedButton() {
+        yield this.registerWithEmailAndPassword(context);
+      }).bind(this));
+    }
+    registerWithEmailAndPassword(context) {
+      return async.async(dart.dynamic, (function* registerWithEmailAndPassword() {
+        try {
+          yield this[_auth].createUserWithEmailAndPassword({email: this.emailController.text, password: this.passwordController.text}).then(core.Null, dart.fn(result => async.async(core.Null, (function*() {
+            if (dart.nullCheck(result.user).uid[$isNotEmpty]) {
+              let profileRef = (yield this.uploadFile(dart.nullCheck(this.fileProfileImage), "profile"));
+              let bannerRef = (yield this.uploadFile(dart.nullCheck(this.fileBannerImage), "banner"));
+              if (profileRef[$isNotEmpty] && bannerRef[$isNotEmpty]) {
+                let userProfile = new user_profile_model.UserProfile.new();
+                userProfile.userId = dart.nullCheck(this.firebaseUser.value).uid;
+                userProfile.userName = this.userNameEditingController.text;
+                userProfile.universty = this.universityEditingController.text;
+                userProfile.department = this.departmentEditingController.text;
+                userProfile.gender = this.dropdownGender;
+                userProfile.city = this.dropdownCity;
+                userProfile.webSite = this.webSiteEditingController.text;
+                userProfile.linkedin = this.linkedinEditingController.text;
+                userProfile.twitter = this.twitterEditingController.text;
+                userProfile.instagram = this.instagramEditingController.text;
+                userProfile.biograpfy = this.biographyEditingController.text;
+                userProfile.birtday = this.birtday;
+                userProfile.userProfileImage = profileRef;
+                userProfile.userBackImage = bannerRef;
+                this.createUserFirestore(userProfile, dart.nullCheck(this.firebaseUser.value));
+              }
+            }
+          }).bind(this)), T.UserCredentialToFutureOfNull()));
+        } catch (e) {
+          let err = dart.getThrown(e);
+          if (firebase_auth_exception.FirebaseAuthException.is(err)) {
+            extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, "Kayıt işleminde hata oluştu.", dart.nullCheck(err.message), {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 10}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
+          } else
+            throw e;
+        }
+      }).bind(this));
+    }
+    createUserFirestore(user, _firebaseUser) {
+      this[_db].doc("/users/" + _firebaseUser.uid).set(user.toJson());
+    }
+  };
+  (userInformationController.UserInformationController.new = function() {
+    this[_auth] = firebase_auth.FirebaseAuth.instance;
+    this[_db] = cloud_firestore.FirebaseFirestore.instance;
+    this[dropdownCity] = "Şehir";
+    this[dropdownGender] = "Cinsiyet";
+    this[birtday] = "00.00.0000";
+    this[fileProfileImage] = null;
+    this[fileBannerImage] = null;
+    this[emailController] = new editable_text.TextEditingController.new();
+    this[passwordController] = new editable_text.TextEditingController.new();
+    this[uniEmailController] = new editable_text.TextEditingController.new();
+    this[userNameEditingController] = new editable_text.TextEditingController.new();
+    this[universityEditingController] = new editable_text.TextEditingController.new();
+    this[departmentEditingController] = new editable_text.TextEditingController.new();
+    this[webSiteEditingController] = new editable_text.TextEditingController.new();
+    this[linkedinEditingController] = new editable_text.TextEditingController.new();
+    this[instagramEditingController] = new editable_text.TextEditingController.new();
+    this[twitterEditingController] = new editable_text.TextEditingController.new();
+    this[biographyEditingController] = new editable_text.TextEditingController.new();
+    this[firebaseUser] = new (T.RxnOfUser()).new();
+    this[firestoreUser] = new (T.RxnOfUserModel()).new();
+    userInformationController.UserInformationController.__proto__.new.call(this);
+    ;
+  }).prototype = userInformationController.UserInformationController.prototype;
+  dart.addTypeTests(userInformationController.UserInformationController);
+  dart.addTypeCaches(userInformationController.UserInformationController);
+  dart.setMethodSignature(userInformationController.UserInformationController, () => ({
+    __proto__: dart.getMethods(userInformationController.UserInformationController.__proto__),
+    uploadFile: dart.fnType(async.Future$(core.String), [html.PickedFile, core.String]),
+    onPressedButton: dart.fnType(dart.void, [framework.BuildContext]),
+    registerWithEmailAndPassword: dart.fnType(dart.dynamic, [framework.BuildContext]),
+    createUserFirestore: dart.fnType(dart.void, [user_profile_model.UserProfile, firebase_auth.User])
+  }));
+  dart.setLibraryUri(userInformationController.UserInformationController, I[0]);
+  dart.setFieldSignature(userInformationController.UserInformationController, () => ({
+    __proto__: dart.getFields(userInformationController.UserInformationController.__proto__),
+    [_auth]: dart.finalFieldType(firebase_auth.FirebaseAuth),
+    [_db]: dart.finalFieldType(cloud_firestore.FirebaseFirestore),
+    dropdownCity: dart.fieldType(core.String),
+    dropdownGender: dart.fieldType(core.String),
+    birtday: dart.fieldType(core.String),
+    fileProfileImage: dart.fieldType(dart.nullable(html.PickedFile)),
+    fileBannerImage: dart.fieldType(dart.nullable(html.PickedFile)),
+    emailController: dart.fieldType(editable_text.TextEditingController),
+    passwordController: dart.fieldType(editable_text.TextEditingController),
+    uniEmailController: dart.fieldType(editable_text.TextEditingController),
+    userNameEditingController: dart.fieldType(editable_text.TextEditingController),
+    universityEditingController: dart.fieldType(editable_text.TextEditingController),
+    departmentEditingController: dart.fieldType(editable_text.TextEditingController),
+    webSiteEditingController: dart.fieldType(editable_text.TextEditingController),
+    linkedinEditingController: dart.fieldType(editable_text.TextEditingController),
+    instagramEditingController: dart.fieldType(editable_text.TextEditingController),
+    twitterEditingController: dart.fieldType(editable_text.TextEditingController),
+    biographyEditingController: dart.fieldType(editable_text.TextEditingController),
+    firebaseUser: dart.fieldType(rx_types.Rxn$(firebase_auth.User)),
+    firestoreUser: dart.fieldType(rx_types.Rxn$(user_model.UserModel))
+  }));
+  dart.defineLazy(userInformationController.UserInformationController, {
+    /*userInformationController.UserInformationController.to*/get to() {
+      return extension_instance['Inst|find'](userInformationController.UserInformationController, get_main.Get);
+    },
+    set to(_) {}
+  }, false);
+  dart.trackLibraries("packages/logafic/controllers/userInformationController.dart", {
+    "package:logafic/controllers/userInformationController.dart": userInformationController
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["userInformationController.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/logafic/controllers/userInformationController.dart.lib.js"}');
+  // Exports:
+  return {
+    controllers__userInformationController: userInformationController
+  };
+}));
+
+//# sourceMappingURL=userInformationController.dart.lib.js.map

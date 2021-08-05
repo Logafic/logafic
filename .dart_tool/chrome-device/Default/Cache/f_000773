@@ -1,0 +1,313 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/logafic/extensions/string_extensions.dart', 'packages/logafic/screens/first_screen.dart', 'packages/logafic/screens/home_page.dart', 'packages/logafic/screens/message_screen.dart', 'packages/logafic/screens/notification_screen.dart', 'packages/logafic/screens/profile_screen.dart', 'packages/logafic/screens/update_user_information.dart', 'packages/logafic/screens/register_screen.dart', 'packages/logafic/screens/reset_password_screen.dart', 'packages/logafic/screens/status_screen.dart', 'packages/logafic/screens/user_information_screen.dart', 'packages/logafic/screens/login_screen.dart'], (function load__packages__logafic__routing__router_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__logafic__extensions__string_extensions$46dart, packages__logafic__screens__first_screen$46dart, packages__logafic__screens__home_page$46dart, packages__logafic__screens__message_screen$46dart, packages__logafic__screens__notification_screen$46dart, packages__logafic__screens__profile_screen$46dart, packages__logafic__screens__update_user_information$46dart, packages__logafic__screens__register_screen$46dart, packages__logafic__screens__reset_password_screen$46dart, packages__logafic__screens__status_screen$46dart, packages__logafic__screens__user_information_screen$46dart, packages__logafic__screens__login_screen$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const pages = packages__flutter__src__widgets__widget_span$46dart.src__widgets__pages;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const string_extensions = packages__logafic__extensions__string_extensions$46dart.extensions__string_extensions;
+  const first_screen = packages__logafic__screens__first_screen$46dart.screens__first_screen;
+  const home_page = packages__logafic__screens__home_page$46dart.screens__home_page;
+  const message_screen = packages__logafic__screens__message_screen$46dart.screens__message_screen;
+  const notification_screen = packages__logafic__screens__notification_screen$46dart.screens__notification_screen;
+  const profile_screen = packages__logafic__screens__profile_screen$46dart.screens__profile_screen;
+  const update_user_information = packages__logafic__screens__update_user_information$46dart.screens__update_user_information;
+  const register_screen = packages__logafic__screens__register_screen$46dart.screens__register_screen;
+  const reset_password_screen = packages__logafic__screens__reset_password_screen$46dart.screens__reset_password_screen;
+  const status_screen = packages__logafic__screens__status_screen$46dart.screens__status_screen;
+  const user_information_screen = packages__logafic__screens__user_information_screen$46dart.screens__user_information_screen;
+  const login_screen = packages__logafic__screens__login_screen$46dart.screens__login_screen;
+  var router = Object.create(dart.library);
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    AnimationOfdouble: () => (T.AnimationOfdouble = dart.constFn(animation.Animation$(core.double)))(),
+    BuildContextAndAnimationOfdoubleAndAnimationOfdoubleToWidget: () => (T.BuildContextAndAnimationOfdoubleAndAnimationOfdoubleToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, T.AnimationOfdouble(), T.AnimationOfdouble()])))(),
+    BuildContextAndAnimationOfdoubleAndAnimationOfdouble__ToFadeTransition: () => (T.BuildContextAndAnimationOfdoubleAndAnimationOfdouble__ToFadeTransition = dart.constFn(dart.fnType(transitions.FadeTransition, [framework.BuildContext, T.AnimationOfdouble(), T.AnimationOfdouble(), framework.Widget])))(),
+    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "opacity",
+        [_Location_column]: 13,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 86,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 24,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 26,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "userId",
+        [_Location_column]: 13,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11], widget_inspector._Location);
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "userId",
+        [_Location_column]: 33,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14], widget_inspector._Location);
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 42,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 49,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "id",
+        [_Location_column]: 13,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19], widget_inspector._Location);
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 53,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 58,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 60,
+        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/routing/router.dart"
+      });
+    }
+  }, false);
+  var C = Array(22).fill(void 0);
+  var I = ["package:logafic/routing/router.dart"];
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  router._FadeRoute = class _FadeRoute extends pages.PageRouteBuilder {};
+  (router._FadeRoute.new = function(opts) {
+    let child = opts && 'child' in opts ? opts.child : null;
+    let routeName = opts && 'routeName' in opts ? opts.routeName : null;
+    this.child = child;
+    this.routeName = routeName;
+    router._FadeRoute.__proto__.new.call(this, {settings: new navigator.RouteSettings.new({name: routeName}), pageBuilder: dart.fn((context, animation, secondaryAnimation) => child, T.BuildContextAndAnimationOfdoubleAndAnimationOfdoubleToWidget()), transitionsBuilder: dart.fn((context, animation, secondaryAnimation, child) => new transitions.FadeTransition.new({opacity: animation, child: child, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), T.BuildContextAndAnimationOfdoubleAndAnimationOfdouble__ToFadeTransition())});
+    ;
+  }).prototype = router._FadeRoute.prototype;
+  dart.addTypeTests(router._FadeRoute);
+  dart.addTypeCaches(router._FadeRoute);
+  dart.setLibraryUri(router._FadeRoute, I[0]);
+  dart.setFieldSignature(router._FadeRoute, () => ({
+    __proto__: dart.getFields(router._FadeRoute.__proto__),
+    child: dart.finalFieldType(framework.Widget),
+    routeName: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  router.generateRoute = function generateRoute(settings) {
+    let t0, t0$;
+    let routingData = (t0 = settings.name, t0 == null ? null : string_extensions['StringExtensions|get#getRoutingData'](t0));
+    switch (t0$ = routingData, t0$ == null ? null : t0$.route) {
+      case "/":
+      {
+        return router._getPageRoute(new first_screen.FirstScreenTopBarContents.new({$creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), settings);
+      }
+      case "/home":
+      {
+        return router._getPageRoute(new home_page.HomePage.new({$creationLocationd_0dea112b090073317d4: C[6] || CT.C6}), settings);
+      }
+      case "/message":
+      {
+        return router._getPageRoute(new message_screen.MyHomePage.new({$creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), settings);
+      }
+      case "/notification":
+      {
+        return router._getPageRoute(new notification_screen.NotificationScreen.new({$creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), settings);
+      }
+      case "/profile":
+      {
+        let $arguments = T.MapOfString$dynamic().as(settings.arguments);
+        return router._getPageRoute(new profile_screen.ProfileScreen.new({userId: core.String.as($arguments[$_get]("userId")), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9}), settings);
+      }
+      case "/update":
+      {
+        let $arguments = T.MapOfString$dynamic().as(settings.arguments);
+        return router._getPageRoute(new update_user_information.UpdateUserInformation.new({userId: core.String.as($arguments[$_get]("userId")), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), settings);
+      }
+      case "/register":
+      {
+        return router._getPageRoute(new register_screen.RegisterScreen.new({$creationLocationd_0dea112b090073317d4: C[15] || CT.C15}), settings);
+      }
+      case "/reset":
+      {
+        return router._getPageRoute(new reset_password_screen.ResetPasswordUI.new({$creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), settings);
+      }
+      case "/status":
+      {
+        let $arguments = T.MapOfString$dynamic().as(settings.arguments);
+        return router._getPageRoute(new status_screen.StatusScreen.new({id: core.String.as($arguments[$_get]("id")), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), settings);
+      }
+      case "/save":
+      {
+        return router._getPageRoute(new user_information_screen.UserInformation.new({$creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), settings);
+      }
+      default:
+      {
+        return router._getPageRoute(new login_screen.LoginScreen.new({$creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), settings);
+      }
+    }
+  };
+  router._getPageRoute = function _getPageRoute(child, settings) {
+    return new router._FadeRoute.new({child: child, routeName: settings.name});
+  };
+  dart.trackLibraries("packages/logafic/routing/router.dart", {
+    "package:logafic/routing/router.dart": router
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["router.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;QAsE4B;QAAqB;IAArB;IAAqB;AACzC,0DACY,uCAAoB,SAAS,iBAC1B,SACE,SACK,WACA,uBAEhB,KAAK,yFACW,SACL,SACK,WACA,oBACX,UAEL,6CACO,SAAS,SACX,KAAK;;EAEf;;;;;;;;;gDAtEkC;;AACrC,4BAAc,AAAS,QAAD,oBAAC,OAAM;AACjC,kBAAQ,WAAW,gBAAX,OAAa;;;AAEjB,cAAO,sBAAc,yGAA6B,QAAQ;;;;AAE1D,cAAO,sBAAc,qFAAY,QAAQ;;;;AAEzC,cAAO,sBAAc,4FAAc,QAAQ;;;;AAE3C,cAAO,sBAAc,yGAAsB,QAAQ;;;;AAE7C,yBAA+B,2BAAnB,AAAS,QAAD;AAC1B,cAAO,sBACH,6DACU,AAAS,kBAAC,qEAGpB,QAAQ;;;;AAEN,yBAA+B,2BAAnB,AAAS,QAAD;AAC1B,cAAO,sBACH,8EAA8B,AAAS,kBAAC,uEAGxC,QAAQ;;;;AAEZ,cAAO,sBAAc,mGAAkB,QAAQ;;;;AAE/C,cAAO,sBAAc,0GAAmB,QAAQ;;;;AAE1C,yBAA+B,2BAAnB,AAAS,QAAD;AAC1B,cAAO,sBACH,uDACM,AAAS,kBAAC,mEAEhB,QAAQ;;;;AAEZ,cAAO,sBAAc,4GAAmB,QAAQ;;;;AAEhD,cAAO,sBAAc,6FAAe,QAAQ;;;EAElD;gDAE+B,OAAqB;AAClD,UAAO,mCAAkB,KAAK,aAAa,AAAS,QAAD;EACrD","file":"../../../../../../../packages/logafic/routing/router.dart.lib.js"}');
+  // Exports:
+  return {
+    routing__router: router
+  };
+}));
+
+//# sourceMappingURL=router.dart.lib.js.map

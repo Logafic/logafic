@@ -1,0 +1,329 @@
+define(['dart_sdk', 'packages/collection/src/iterable_extensions.dart'], (function load__packages__async__src__stream_group_dart(dart_sdk, packages__collection__src__iterable_extensions$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const iterable_extensions = packages__collection__src__iterable_extensions$46dart.src__iterable_extensions;
+  var stream_group = Object.create(dart.library);
+  var $isEmpty = dartx.isEmpty;
+  var $forEach = dartx.forEach;
+  var $_equals = dartx._equals;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $remove = dartx.remove;
+  var $entries = dartx.entries;
+  var $toList = dartx.toList;
+  var $_set = dartx._set;
+  var $values = dartx.values;
+  var $map = dartx.map;
+  var $clear = dartx.clear;
+  dart._checkModuleNullSafetyMode(true);
+  var T$ = {
+    StreamControllerOfNull: () => (T$.StreamControllerOfNull = dart.constFn(async.StreamController$(core.Null)))(),
+    VoidToNull: () => (T$.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    dynamicToNull: () => (T$.dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))(),
+    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    FutureNOfvoid: () => (T$.FutureNOfvoid = dart.constFn(dart.nullable(T$.FutureOfvoid())))(),
+    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: stream_group._StreamGroupState.prototype,
+        [name$]: "dormant"
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: stream_group._StreamGroupState.prototype,
+        [name$]: "listening"
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: stream_group._StreamGroupState.prototype,
+        [name$]: "paused"
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: stream_group._StreamGroupState.prototype,
+        [name$]: "canceled"
+      });
+    }
+  }, false);
+  var C = Array(4).fill(void 0);
+  var I = ["package:async/src/stream_group.dart"];
+  var __StreamGroup__controller = dart.privateName(stream_group, "_#StreamGroup#_controller");
+  var _closed = dart.privateName(stream_group, "_closed");
+  var _state = dart.privateName(stream_group, "_state");
+  var _onIdleController = dart.privateName(stream_group, "_onIdleController");
+  var _subscriptions = dart.privateName(stream_group, "_subscriptions");
+  var _controller = dart.privateName(stream_group, "_controller");
+  var _onListen = dart.privateName(stream_group, "_onListen");
+  var _onPause = dart.privateName(stream_group, "_onPause");
+  var _onResume = dart.privateName(stream_group, "_onResume");
+  var _onCancel = dart.privateName(stream_group, "_onCancel");
+  var _onCancelBroadcast = dart.privateName(stream_group, "_onCancelBroadcast");
+  var _listenToStream = dart.privateName(stream_group, "_listenToStream");
+  const _is_StreamGroup_default = Symbol('_is_StreamGroup_default');
+  stream_group.StreamGroup$ = dart.generic(T => {
+    var StreamOfT = () => (StreamOfT = dart.constFn(async.Stream$(T)))();
+    var StreamSubscriptionOfT = () => (StreamSubscriptionOfT = dart.constFn(async.StreamSubscription$(T)))();
+    var StreamSubscriptionNOfT = () => (StreamSubscriptionNOfT = dart.constFn(dart.nullable(StreamSubscriptionOfT())))();
+    var LinkedMapOfStreamOfT$StreamSubscriptionNOfT = () => (LinkedMapOfStreamOfT$StreamSubscriptionNOfT = dart.constFn(_js_helper.LinkedMap$(StreamOfT(), StreamSubscriptionNOfT())))();
+    var StreamControllerOfT = () => (StreamControllerOfT = dart.constFn(async.StreamController$(T)))();
+    var VoidToStreamSubscriptionOfT = () => (VoidToStreamSubscriptionOfT = dart.constFn(dart.fnType(StreamSubscriptionOfT(), [])))();
+    var MapEntryOfStreamOfT$StreamSubscriptionNOfT = () => (MapEntryOfStreamOfT$StreamSubscriptionNOfT = dart.constFn(core.MapEntry$(StreamOfT(), StreamSubscriptionNOfT())))();
+    var MapEntryOfStreamOfT$StreamSubscriptionNOfTToFutureNOfvoid = () => (MapEntryOfStreamOfT$StreamSubscriptionNOfTToFutureNOfvoid = dart.constFn(dart.fnType(T$.FutureNOfvoid(), [MapEntryOfStreamOfT$StreamSubscriptionNOfT()])))();
+    var StreamOfTAndStreamSubscriptionNOfTTovoid = () => (StreamOfTAndStreamSubscriptionNOfTTovoid = dart.constFn(dart.fnType(dart.void, [StreamOfT(), StreamSubscriptionNOfT()])))();
+    class StreamGroup extends core.Object {
+      get stream() {
+        return this[_controller].stream;
+      }
+      get [_controller]() {
+        let t0;
+        t0 = this[__StreamGroup__controller];
+        return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
+      }
+      set [_controller](t0) {
+        this[__StreamGroup__controller] = t0;
+      }
+      get isClosed() {
+        return this[_closed];
+      }
+      get isIdle() {
+        return this[_subscriptions][$isEmpty];
+      }
+      get onIdle() {
+        let t1;
+        return (t1 = this[_onIdleController], t1 == null ? this[_onIdleController] = T$.StreamControllerOfNull().broadcast() : t1).stream;
+      }
+      static merge(T, streams) {
+        let group = new (stream_group.StreamGroup$(T)).new();
+        streams[$forEach](dart.bind(group, 'add'));
+        group.close();
+        return group.stream;
+      }
+      static mergeBroadcast(T, streams) {
+        let group = new (stream_group.StreamGroup$(T)).broadcast();
+        streams[$forEach](dart.bind(group, 'add'));
+        group.close();
+        return group.stream;
+      }
+      add(stream) {
+        StreamOfT().as(stream);
+        if (this[_closed]) {
+          dart.throw(new core.StateError.new("Can't add a Stream to a closed StreamGroup."));
+        }
+        if (this[_state][$_equals](stream_group._StreamGroupState.dormant)) {
+          this[_subscriptions][$putIfAbsent](stream, dart.fn(() => null, T$.VoidToNull()));
+        } else if (this[_state][$_equals](stream_group._StreamGroupState.canceled)) {
+          return stream.listen(null).cancel();
+        } else {
+          this[_subscriptions][$putIfAbsent](stream, dart.fn(() => this[_listenToStream](stream), VoidToStreamSubscriptionOfT()));
+        }
+        return null;
+      }
+      remove(stream) {
+        let t1, t1$;
+        StreamOfT().as(stream);
+        let subscription = this[_subscriptions][$remove](stream);
+        let future = subscription == null ? null : subscription.cancel();
+        if (this[_subscriptions][$isEmpty]) {
+          t1 = this[_onIdleController];
+          t1 == null ? null : t1.add(null);
+          if (this[_closed]) {
+            t1$ = this[_onIdleController];
+            t1$ == null ? null : t1$.close();
+            async.scheduleMicrotask(dart.bind(this[_controller], 'close'));
+          }
+        }
+        return future;
+      }
+      [_onListen]() {
+        let t2;
+        this[_state] = stream_group._StreamGroupState.listening;
+        for (let entry of this[_subscriptions][$entries][$toList]()) {
+          if (entry.value != null) return;
+          let stream = entry.key;
+          try {
+            this[_subscriptions][$_set](stream, this[_listenToStream](stream));
+          } catch (e) {
+            let error = dart.getThrown(e);
+            if (core.Object.is(error)) {
+              t2 = this[_onCancel]();
+              t2 == null ? null : t2.catchError(dart.fn(_ => {
+              }, T$.dynamicToNull()));
+              dart.rethrow(e);
+            } else
+              throw e;
+          }
+        }
+      }
+      [_onPause]() {
+        this[_state] = stream_group._StreamGroupState.paused;
+        for (let subscription of this[_subscriptions][$values]) {
+          dart.nullCheck(subscription).pause();
+        }
+      }
+      [_onResume]() {
+        this[_state] = stream_group._StreamGroupState.listening;
+        for (let subscription of this[_subscriptions][$values]) {
+          dart.nullCheck(subscription).resume();
+        }
+      }
+      [_onCancel]() {
+        this[_state] = stream_group._StreamGroupState.canceled;
+        let futures = iterable_extensions['IterableNullableExtension|whereNotNull'](T$.FutureOfvoid(), this[_subscriptions][$entries][$map](T$.FutureNOfvoid(), dart.fn(entry => {
+          let subscription = entry.value;
+          if (subscription != null) return subscription.cancel();
+          try {
+            return entry.key.listen(null).cancel();
+          } catch (e) {
+            let _ = dart.getThrown(e);
+            if (core.Object.is(_)) {
+              return null;
+            } else
+              throw e;
+          }
+        }, MapEntryOfStreamOfT$StreamSubscriptionNOfTToFutureNOfvoid())))[$toList]();
+        this[_subscriptions][$clear]();
+        let onIdleController = this[_onIdleController];
+        if (onIdleController != null && !onIdleController.isClosed) {
+          onIdleController.add(null);
+          onIdleController.close();
+        }
+        return futures[$isEmpty] ? null : async.Future.wait(dart.void, futures);
+      }
+      [_onCancelBroadcast]() {
+        this[_state] = stream_group._StreamGroupState.dormant;
+        this[_subscriptions][$forEach](dart.fn((stream, subscription) => {
+          if (!stream.isBroadcast) return;
+          dart.nullCheck(subscription).cancel();
+          this[_subscriptions][$_set](stream, null);
+        }, StreamOfTAndStreamSubscriptionNOfTTovoid()));
+      }
+      [_listenToStream](stream) {
+        let subscription = stream.listen(dart.bind(this[_controller], 'add'), {onError: dart.bind(this[_controller], 'addError'), onDone: dart.fn(() => this.remove(stream), T$.VoidTovoid())});
+        if (this[_state][$_equals](stream_group._StreamGroupState.paused)) subscription.pause();
+        return subscription;
+      }
+      close() {
+        if (this[_closed]) return this[_controller].done;
+        this[_closed] = true;
+        if (this[_subscriptions][$isEmpty]) this[_controller].close();
+        return this[_controller].done;
+      }
+    }
+    (StreamGroup.new = function() {
+      this[__StreamGroup__controller] = null;
+      this[_closed] = false;
+      this[_state] = stream_group._StreamGroupState.dormant;
+      this[_onIdleController] = null;
+      this[_subscriptions] = new (LinkedMapOfStreamOfT$StreamSubscriptionNOfT()).new();
+      this[_controller] = StreamControllerOfT().new({onListen: dart.bind(this, _onListen), onPause: dart.bind(this, _onPause), onResume: dart.bind(this, _onResume), onCancel: dart.bind(this, _onCancel), sync: true});
+    }).prototype = StreamGroup.prototype;
+    (StreamGroup.broadcast = function() {
+      this[__StreamGroup__controller] = null;
+      this[_closed] = false;
+      this[_state] = stream_group._StreamGroupState.dormant;
+      this[_onIdleController] = null;
+      this[_subscriptions] = new (LinkedMapOfStreamOfT$StreamSubscriptionNOfT()).new();
+      this[_controller] = StreamControllerOfT().broadcast({onListen: dart.bind(this, _onListen), onCancel: dart.bind(this, _onCancelBroadcast), sync: true});
+    }).prototype = StreamGroup.prototype;
+    dart.addTypeTests(StreamGroup);
+    StreamGroup.prototype[_is_StreamGroup_default] = true;
+    dart.addTypeCaches(StreamGroup);
+    StreamGroup[dart.implements] = () => [core.Sink$(async.Stream$(T))];
+    dart.setMethodSignature(StreamGroup, () => ({
+      __proto__: dart.getMethods(StreamGroup.__proto__),
+      add: dart.fnType(dart.nullable(async.Future), [dart.nullable(core.Object)]),
+      remove: dart.fnType(dart.nullable(async.Future), [dart.nullable(core.Object)]),
+      [_onListen]: dart.fnType(dart.void, []),
+      [_onPause]: dart.fnType(dart.void, []),
+      [_onResume]: dart.fnType(dart.void, []),
+      [_onCancel]: dart.fnType(dart.nullable(async.Future), []),
+      [_onCancelBroadcast]: dart.fnType(dart.void, []),
+      [_listenToStream]: dart.fnType(async.StreamSubscription$(T), [async.Stream$(T)]),
+      close: dart.fnType(async.Future, [])
+    }));
+    dart.setGetterSignature(StreamGroup, () => ({
+      __proto__: dart.getGetters(StreamGroup.__proto__),
+      stream: async.Stream$(T),
+      [_controller]: async.StreamController$(T),
+      isClosed: core.bool,
+      isIdle: core.bool,
+      onIdle: async.Stream$(dart.void)
+    }));
+    dart.setSetterSignature(StreamGroup, () => ({
+      __proto__: dart.getSetters(StreamGroup.__proto__),
+      [_controller]: async.StreamController$(T)
+    }));
+    dart.setLibraryUri(StreamGroup, I[0]);
+    dart.setFieldSignature(StreamGroup, () => ({
+      __proto__: dart.getFields(StreamGroup.__proto__),
+      [__StreamGroup__controller]: dart.fieldType(dart.nullable(async.StreamController$(T))),
+      [_closed]: dart.fieldType(core.bool),
+      [_state]: dart.fieldType(stream_group._StreamGroupState),
+      [_onIdleController]: dart.fieldType(dart.nullable(async.StreamController$(core.Null))),
+      [_subscriptions]: dart.finalFieldType(core.Map$(async.Stream$(T), dart.nullable(async.StreamSubscription$(T))))
+    }));
+    return StreamGroup;
+  });
+  stream_group.StreamGroup = stream_group.StreamGroup$();
+  dart.addTypeTests(stream_group.StreamGroup, _is_StreamGroup_default);
+  var name$ = dart.privateName(stream_group, "_StreamGroupState.name");
+  stream_group._StreamGroupState = class _StreamGroupState extends core.Object {
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      super.name = value;
+    }
+    toString() {
+      return this.name;
+    }
+  };
+  (stream_group._StreamGroupState.new = function(name) {
+    this[name$] = name;
+    ;
+  }).prototype = stream_group._StreamGroupState.prototype;
+  dart.addTypeTests(stream_group._StreamGroupState);
+  dart.addTypeCaches(stream_group._StreamGroupState);
+  dart.setLibraryUri(stream_group._StreamGroupState, I[0]);
+  dart.setFieldSignature(stream_group._StreamGroupState, () => ({
+    __proto__: dart.getFields(stream_group._StreamGroupState.__proto__),
+    name: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(stream_group._StreamGroupState, ['toString']);
+  dart.defineLazy(stream_group._StreamGroupState, {
+    /*stream_group._StreamGroupState.dormant*/get dormant() {
+      return C[0] || CT.C0;
+    },
+    /*stream_group._StreamGroupState.listening*/get listening() {
+      return C[1] || CT.C1;
+    },
+    /*stream_group._StreamGroupState.paused*/get paused() {
+      return C[2] || CT.C2;
+    },
+    /*stream_group._StreamGroupState.canceled*/get canceled() {
+      return C[3] || CT.C3;
+    }
+  }, false);
+  dart.trackLibraries("packages/async/src/stream_group.dart", {
+    "package:async/src/stream_group.dart": stream_group
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["stream_group.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/async/src/stream_group.dart.lib.js"}');
+  // Exports:
+  return {
+    src__stream_group: stream_group
+  };
+}));
+
+//# sourceMappingURL=stream_group.dart.lib.js.map

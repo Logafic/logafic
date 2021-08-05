@@ -1,0 +1,369 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/foundation/print.dart', 'packages/flutter/src/material/progress_indicator.dart'], (function load__packages__logafic__widgets__loading_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__foundation__print$46dart, packages__flutter__src__material__progress_indicator$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const modal_barrier = packages__flutter__src__widgets__widget_span$46dart.src__widgets__modal_barrier;
+  const overlay$ = packages__flutter__src__widgets__widget_span$46dart.src__widgets__overlay;
+  const navigator$ = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  var loading = Object.create(dart.library);
+  var $toString = dartx.toString;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    BuildContextToWidget: () => (T.BuildContextToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext])))(),
+    ElementTovoid: () => (T.ElementTovoid = dart.constFn(dart.fnType(dart.void, [framework.Element])))(),
+    StateOfStatefulWidget: () => (T.StateOfStatefulWidget = dart.constFn(framework.State$(framework.StatefulWidget)))(),
+    GlobalKeyOfStateOfStatefulWidget: () => (T.GlobalKeyOfStateOfStatefulWidget = dart.constFn(framework.GlobalKey$(T.StateOfStatefulWidget())))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/loading.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/loading.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 9,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 9,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10], widget_inspector._Location);
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 64,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/loading.dart"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13], widget_inspector._Location);
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/loading.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 19,
+        [_Location_line]: 78,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16], widget_inspector._Location);
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 77,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/loading.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19], widget_inspector._Location);
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 75,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/loading.dart"
+      });
+    }
+  }, false);
+  var C = Array(20).fill(void 0);
+  var I = [
+    "package:logafic/widgets/loading.dart",
+    "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/loading.dart"
+  ];
+  var child$ = dart.privateName(loading, "Loading.child");
+  var darkTheme$ = dart.privateName(loading, "Loading.darkTheme");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  loading.Loading = class Loading extends framework.StatelessWidget {
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    get darkTheme() {
+      return this[darkTheme$];
+    }
+    set darkTheme(value) {
+      super.darkTheme = value;
+    }
+    build(context) {
+      loading.isDarkTheme = this.darkTheme;
+      return new basic.SizedBox.new({key: loading._tKey, child: this.child, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
+    }
+  };
+  (loading.Loading.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let darkTheme = opts && 'darkTheme' in opts ? opts.darkTheme : false;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    this[darkTheme$] = darkTheme;
+    loading.Loading.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = loading.Loading.prototype;
+  dart.addTypeTests(loading.Loading);
+  dart.addTypeCaches(loading.Loading);
+  dart.setMethodSignature(loading.Loading, () => ({
+    __proto__: dart.getMethods(loading.Loading.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(loading.Loading, I[0]);
+  dart.setFieldSignature(loading.Loading, () => ({
+    __proto__: dart.getFields(loading.Loading.__proto__),
+    child: dart.finalFieldType(dart.nullable(framework.Widget)),
+    darkTheme: dart.finalFieldType(core.bool)
+  }));
+  loading.showLoadingIndicator = function showLoadingIndicator(opts) {
+    let isModal = opts && 'isModal' in opts ? opts.isModal : true;
+    let modalColor = opts && 'modalColor' in opts ? opts.modalColor : null;
+    return async.async(dart.void, function* showLoadingIndicator() {
+      try {
+        print.debugPrint("Showing loading overlay");
+        let _child = new basic.Center.new({child: new basic.SizedBox.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), width: 30.0, height: 30.0, $creationLocationd_0dea112b090073317d4: C[6] || CT.C6}), $creationLocationd_0dea112b090073317d4: C[11] || CT.C11});
+        yield loading._showOverlay({child: isModal ? new basic.Stack.new({children: T.JSArrayOfWidget().of([new modal_barrier.ModalBarrier.new({color: modalColor, $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), _child]), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17}) : _child});
+      } catch (e) {
+        let err = dart.getThrown(e);
+        if (core.Object.is(err)) {
+          print.debugPrint("Exception showing loading overlay\n" + err[$toString]());
+          dart.throw(err);
+        } else
+          throw e;
+      }
+    });
+  };
+  loading.hideLoadingIndicator = function hideLoadingIndicator() {
+    return async.async(dart.void, function* hideLoadingIndicator() {
+      try {
+        print.debugPrint("Hiding loading overlay");
+        yield loading._hideOverlay();
+      } catch (e) {
+        let err = dart.getThrown(e);
+        if (core.Object.is(err)) {
+          print.debugPrint("Exception hiding loading overlay");
+          dart.throw(err);
+        } else
+          throw e;
+      }
+    });
+  };
+  loading._showOverlay = function _showOverlay(opts) {
+    let child = opts && 'child' in opts ? opts.child : null;
+    return async.async(dart.void, function* _showOverlay() {
+      let t2;
+      try {
+        let overlay = loading._overlayState;
+        if (loading._loaderShown) {
+          print.debugPrint("An overlay is already showing");
+          return T.FutureOfvoid().value(false);
+        }
+        let overlayEntry = new overlay$.OverlayEntry.new({builder: dart.fn(context => dart.nullCheck(child), T.BuildContextToWidget())});
+        t2 = overlay;
+        t2 == null ? null : t2.insert(overlayEntry);
+        loading._loaderEntry = overlayEntry;
+        loading._loaderShown = true;
+      } catch (e) {
+        let err = dart.getThrown(e);
+        if (core.Object.is(err)) {
+          print.debugPrint("Exception inserting loading overlay\n" + err[$toString]());
+          dart.throw(err);
+        } else
+          throw e;
+      }
+    });
+  };
+  loading._hideOverlay = function _hideOverlay() {
+    return async.async(dart.void, function* _hideOverlay() {
+      try {
+        loading._loaderShown = false;
+      } catch (e) {
+        let err = dart.getThrown(e);
+        if (core.Object.is(err)) {
+          print.debugPrint("Exception removing loading overlay\n" + err[$toString]());
+          dart.throw(err);
+        } else
+          throw e;
+      }
+    });
+  };
+  dart.copyProperties(loading, {
+    get _loaderEntry() {
+      let t4;
+      t4 = loading['_#_loaderEntry'];
+      return t4 == null ? dart.throw(new _internal.LateError.fieldNI("_loaderEntry")) : t4;
+    },
+    set _loaderEntry(t4) {
+      loading['_#_loaderEntry'] = t4;
+    },
+    get _overlayState() {
+      let context = loading._tKey.currentContext;
+      if (context == null) return null;
+      let navigator = null;
+      function visitor(element) {
+        if (navigator != null) return;
+        if (navigator$.Navigator.is(element.widget)) {
+          navigator = navigator$.NavigatorState.as(framework.StatefulElement.as(element).state);
+        } else {
+          element.visitChildElements(visitor);
+        }
+      }
+      dart.fn(visitor, T.ElementTovoid());
+      context.visitChildElements(visitor);
+      if (!(navigator != null)) dart.assertFailed("unable to show overlay", I[1], 54, 10, "navigator != null");
+      return dart.nullCheck(navigator).overlay;
+    }
+  });
+  dart.defineLazy(loading, {
+    /*loading._tKey*/get _tKey() {
+      return T.GlobalKeyOfStateOfStatefulWidget().new({debugLabel: "overlay_parent"});
+    },
+    /*loading['_#_loaderEntry']*/get ['_#_loaderEntry']() {
+      return null;
+    },
+    set ['_#_loaderEntry'](_) {},
+    /*loading.isDarkTheme*/get isDarkTheme() {
+      return false;
+    },
+    set isDarkTheme(_) {},
+    /*loading._loaderShown*/get _loaderShown() {
+      return false;
+    },
+    set _loaderShown(_) {}
+  }, false);
+  dart.trackLibraries("packages/logafic/widgets/loading.dart", {
+    "package:logafic/widgets/loading.dart": loading
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["loading.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAkBgB;;;;;;IACH;;;;;;UAMe;AACD,MAAvB,sBAAc;AACd,YAAO,8BACA,sBACE;IAEX;;;QAVoB;QAAU;QAAY;;IAAZ;IAAY;AACpC,mDAAW,GAAG;;EAAC;;;;;;;;;;;;;;QAqCb;QAAuB;AADA;AAE/B;AACuC,QAArC,AAAU,iBAAC;AACL,qBAAS,6BACN,+BACE,sHAIA,cACC;AAcX,QAXD,MAAM,6BACG,OAAO,GACR,+BACoB,wBAChB,2CACS,UAAU,6DAEnB,MAAM,gEAGV,MAAM;;YAEP;AAAP;AACkE,UAAlE,AAAU,iBAAC,AAAsD,wCAAhB,AAAI,GAAD;AAC3C,UAAT,WAAM,GAAG;;;;IAEb;;;AAEiC;AAC/B;AACsC,QAApC,AAAU,iBAAC;AACS,QAApB,MAAM;;YACC;AAAP;AAC8C,UAA9C,AAAU,iBAAC;AACF,UAAT,WAAM,GAAG;;;;IAEb;;;QAImC;AAAV;;AACvB;AACQ,sBAAU;AAEhB,YAAI;AACyC,UAA3C,AAAU,iBAAC;AACX,gBAAc,wBAAM;;AAGhB,2BAAe,wCACV,QAAC,WAAiB,eAAL,KAAK;AAGA,aAA7B,OAAO;qBAAP,OAAS,UAAO,YAAY;AACD,QAA3B,uBAAe,YAAY;AACR,QAAnB,uBAAe;;YACR;AAAP;AACoE,UAApE,AAAU,iBAAC,AAAwD,0CAAhB,AAAI,GAAD;AAC7C,UAAT,WAAM,GAAG;;;;IAEb;;;AAEyB;AACvB;AAEsB,QAApB,uBAAe;;YACR;AAAP;AACmE,UAAnE,AAAU,iBAAC,AAAuD,yCAAhB,AAAI,GAAD;AAC5C,UAAT,WAAM,GAAG;;;;IAEb;;;;;AA3HkB;;IAAY;;AAAZ;IAAY;;AA0BtB,oBAAU,AAAM;AACtB,UAAI,AAAQ,OAAD,UAAU,MAAO;AAEZ;AAEhB,eAAK,QAAgB;AACnB,YAAI,SAAS,UAAU;AAEvB,YAAmB,wBAAf,AAAQ,OAAD;AACuD,UAAhE,YAA+C,6BAA1B,AAAoB,6BAA5B,OAAO;;AAEe,UAAnC,AAAQ,OAAD,oBAAoB,OAAO;;;;AAKH,MAAnC,AAAQ,OAAD,oBAAoB,OAAO;AAElC,YAAO,AAAU,SAAD,6BAAU;AAC1B,YAAgB,AAAE,gBAAX,SAAS;IAClB;;;MAjDM,aAAK;YAAG,uDAAsB;;MAGlB,yBAAc;YAAd;;;MAGb,mBAAW;YAAG;;;MAGd,oBAAY;YAAG","file":"../../../../../../../packages/logafic/widgets/loading.dart.lib.js"}');
+  // Exports:
+  return {
+    widgets__loading: loading
+  };
+}));
+
+//# sourceMappingURL=loading.dart.lib.js.map

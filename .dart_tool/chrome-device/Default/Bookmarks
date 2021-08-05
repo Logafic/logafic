@@ -1,0 +1,40 @@
+{
+   "checksum": "3bf7bfab096e2f35a71cc4392600b5a2",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13270823011466321",
+            "guid": "a3115afa-524c-4005-bd8d-25cdee29570c",
+            "id": "5",
+            "name": "android - How to format DateTime in Flutter , How to get current time in flutter? - Stack Overflow",
+            "type": "url",
+            "url": "https://stackoverflow.com/questions/51579546/how-to-format-datetime-in-flutter-how-to-get-current-time-in-flutter"
+         } ],
+         "date_added": "13270821868281794",
+         "date_modified": "13270823011466321",
+         "guid": "00000000-0000-4000-a000-000000000002",
+         "id": "1",
+         "name": "Yer işaretleri çubuğu",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13270821868281799",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000003",
+         "id": "2",
+         "name": "Diğer yer işaretleri",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13270821868281805",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000004",
+         "id": "3",
+         "name": "Mobil yer işaretleri",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
