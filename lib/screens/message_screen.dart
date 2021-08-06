@@ -5,6 +5,7 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/widgets/appBarHomePageWidget.dart';
 import 'package:logafic/widgets/background.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/explore_drawer.dart';
 import 'package:logafic/widgets/messageScreenWidget.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/showSettingWidget.dart';
@@ -117,6 +118,8 @@ class _MyHomePageState extends State<MyHomePage> {
           : PreferredSize(
               child: TopBarContents(1),
               preferredSize: Size(MediaQuery.of(context).size.width, 1000)),
+      backgroundColor: Colors.transparent,
+      drawer: ExploreDrawer(),
       body: Center(
         // Sayfa boyutuna göre genişlik ayarlanıyor.
         child: new Container(

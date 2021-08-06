@@ -5,6 +5,7 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/appBarHomePageWidget.dart';
 import 'package:logafic/widgets/background.dart';
+import 'package:logafic/widgets/explore_drawer.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/showSettingWidget.dart';
 import 'package:logafic/widgets/top_bar_contents.dart';
@@ -44,6 +45,7 @@ class NotificationScreen extends StatelessWidget {
               preferredSize: Size(MediaQuery.of(context).size.width, 1000)),
       // Üst menü bitiş
       backgroundColor: Colors.transparent,
+      drawer: ExploreDrawer(),
       body: new Container(
         child: new Stack(
           children: <Widget>[
