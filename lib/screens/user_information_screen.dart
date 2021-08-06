@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:logafic/widgets/responsive.dart';
 
 // Web sayfası adresi ' http://logafic.click/#/save '
 // Ekran görüntüleri github üzerinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/user_information_screen_large.png '
@@ -98,16 +99,8 @@ class _UserInformationState extends State<UserInformation> {
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
-    final body = new Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: Text(
-            'Profilinizi birlikte tamamlayalım.',
-            style: TextStyle(color: Colors.black54),
-          ),
-          backgroundColor: Colors.white,
-        ),
-        body: _userInfoForm);
+    final body =
+        new Scaffold(backgroundColor: Colors.transparent, body: _userInfoForm);
     return new Container(
         decoration: new BoxDecoration(
           color: Colors.black26,
@@ -180,7 +173,19 @@ class _UserInformationState extends State<UserInformation> {
           child: ListView(
             children: <Widget>[
               Padding(
-                  padding: EdgeInsets.all(2),
+                padding: EdgeInsets.all(30),
+                child: Center(
+                  child: Text(
+                    'Profilinizi birlikte tamamlayalım.',
+                    style: TextStyle(
+                        fontSize:
+                            ResponsiveWidget.isSmallScreen(context) ? 20 : 30),
+                  ),
+                ),
+              ),
+              Divider(),
+              Padding(
+                  padding: EdgeInsets.all(10),
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius:
@@ -257,7 +262,7 @@ class _UserInformationState extends State<UserInformation> {
                 padding: EdgeInsets.all(3),
                 child: TextFormField(
                   controller: _userName,
-                  decoration: InputDecoration(labelText: 'Kullanıcı Adınız *'),
+                  decoration: InputDecoration(labelText: 'Adınız Soyadınız *'),
                   validator: _validateEmptyString,
                   focusNode: _emailFocusNode,
                 ),

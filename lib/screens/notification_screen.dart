@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/appBarHomePageWidget.dart';
 import 'package:logafic/widgets/background.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/showSettingWidget.dart';
+import 'package:logafic/widgets/top_bar_contents.dart';
 
 // Web sayfası adresi ' http://logafic.clicki/#/notification '
 // Kullanıcı bildirimlerin görüntülendiği web sayfası kullanıcının paylaşımlarına yapılan beğeni ve yorumlarına yapılan işlemlerin görüntülendiği sayfa
@@ -35,102 +37,11 @@ class NotificationScreen extends StatelessWidget {
     // Web sayfası scaffold sınıfı ile çerçeveleniyor.
     final body = new Scaffold(
       // Üst menü başlangıç
-      appBar: new AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.black54,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            );
-          },
-        ),
-        title: Text(
-          'Bildirimler',
-          style: TextStyle(color: Colors.black54),
-        ),
-        actions: [
-          TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, HomeRoute);
-              },
-              child: Text(
-                'Anasayfa',
-                style: TextStyle(color: Colors.black54, fontSize: 17),
-              )),
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: InkWell(
-                child: PopupMenuButton(
-              icon: Icon(
-                Icons.person,
-                color: Colors.black54,
-              ),
-              itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-                PopupMenuItem(
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.pushNamed(context, ProfileRoute, arguments: {
-                        'userId': authController.firebaseUser.value!.uid
-                      });
-                    },
-                    leading: Icon(Icons.person),
-                    title: Text('Profilim'),
-                  ),
-                ),
-                PopupMenuItem(
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.pushNamed(context, NotificationRoute);
-                    },
-                    leading: Icon(Icons.notification_important),
-                    title: Text('Bildirimler'),
-                  ),
-                ),
-                PopupMenuItem(
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.pushNamed(context, MessageRoute);
-                    },
-                    leading: Icon(Icons.message),
-                    title: Text('Mesajlar'),
-                  ),
-                ),
-                PopupMenuItem(
-                  child: ListTile(
-                    onTap: () {
-                      showDialog(
-                          context: context,
-                          builder: (_) {
-                            return ShowSettingsWidget();
-                          });
-                    },
-                    leading: Icon(Icons.settings),
-                    title: Text('Ayarlar'),
-                  ),
-                ),
-                const PopupMenuDivider(),
-                PopupMenuItem(
-                  child: ListTile(
-                    onTap: () async {
-                      await authController
-                          .signOut()
-                          .whenComplete(() => Get.offAllNamed(FirstRoute));
-                    },
-                    title: Text('Çıkış Yap'),
-                  ),
-                ),
-              ],
-            )),
-          ),
-        ],
-      ),
+      appBar: ResponsiveWidget.isSmallScreen(context)
+          ? appBarHomePageWidget()
+          : PreferredSize(
+              child: TopBarContents(1),
+              preferredSize: Size(MediaQuery.of(context).size.width, 1000)),
       // Üst menü bitiş
       backgroundColor: Colors.transparent,
       body: new Container(

@@ -254,18 +254,31 @@ class _TopBarContentsState extends State<TopBarContents> {
                 width: screenSize.width / 50,
               ),
               InkWell(
-                  onHover: (value) {
-                    setState(() {
-                      value ? _isHovering[3] = true : _isHovering[3] = false;
-                    });
-                  },
-                  onTap: () {},
-                  child: PopupMenuButton(
+                onHover: (value) {
+                  setState(() {
+                    value ? _isHovering[3] = true : _isHovering[3] = false;
+                  });
+                },
+                onTap: () {},
+                child: Padding(
+                  padding: EdgeInsets.only(right: 16),
+                  child: InkWell(
+                      child: PopupMenuButton(
                     icon: Icon(
-                      Icons.person,
-                      color: Colors.black45,
+                      Icons.reorder_outlined,
+                      size: 25,
+                      color: Colors.black54,
                     ),
                     itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+                      PopupMenuItem(
+                        child: ListTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, HomeRoute);
+                          },
+                          leading: Icon(Icons.home_outlined),
+                          title: Text('Anasayfa'),
+                        ),
+                      ),
                       PopupMenuItem(
                         child: ListTile(
                           onTap: () {
@@ -274,7 +287,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                               'userId': authController.firebaseUser.value!.uid
                             });
                           },
-                          leading: Icon(Icons.reorder),
+                          leading: Icon(Icons.person),
                           title: Text('Profilim'),
                         ),
                       ),
@@ -296,20 +309,15 @@ class _TopBarContentsState extends State<TopBarContents> {
                           title: Text('Mesajlar'),
                         ),
                       ),
-                      // authController.firestoreUser.value!.isAdmin == true
-                      //     ? PopupMenuItem(
-                      //         child: ListTile(
-                      //           onTap: () {},
-                      //           leading: Icon(Icons.message),
-                      //           title: Text('İlanlarım'),
-                      //         ),
-                      //       )
-                      //     : PopupMenuItem(
-                      //         child: ListTile(
-                      //           onTap: () {},
-                      //           title: Text(''),
-                      //         ),
-                      //       ),
+                      PopupMenuItem(
+                        child: ListTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, MyJobsRoute);
+                          },
+                          leading: Icon(Icons.event_available),
+                          title: Text('İlanlarım'),
+                        ),
+                      ),
                       PopupMenuItem(
                         child: ListTile(
                           onTap: () {
@@ -325,16 +333,18 @@ class _TopBarContentsState extends State<TopBarContents> {
                       ),
                       const PopupMenuDivider(),
                       PopupMenuItem(
-                          child: ListTile(
-                        onTap: () async {
-                          await authController
-                              .signOut()
-                              .whenComplete(() => Get.offAllNamed(FirstRoute));
-                        },
-                        title: Text('Çıkış Yap'),
-                      )),
+                        child: ListTile(
+                          onTap: () async {
+                            await authController.signOut().whenComplete(
+                                () => Get.offAllNamed(FirstRoute));
+                          },
+                          title: Text('Çıkış Yap'),
+                        ),
+                      ),
                     ],
                   )),
+                ),
+              )
             ],
           ),
         ),

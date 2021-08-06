@@ -19,9 +19,6 @@ class ProfileActionBar extends StatelessWidget {
     Key? key,
     required this.userProfileId,
   }) : super(key: key);
-  CollectionReference isAdminRef =
-      FirebaseFirestore.instance.collection('Admin');
-  bool isAdmin = false;
 
   @override
   Widget build(BuildContext context) {

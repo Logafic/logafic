@@ -36,7 +36,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(FirstScreenTopBarContents(), settings);
     // Anasayfa yönlendirmesi '/home'
     case HomeRoute:
-      return _getPageRoute(HomePage(), settings);
+      return authController.firebaseUser.value!.uid == ''
+          ? _getPageRoute(FirstScreenTopBarContents(), settings)
+          : _getPageRoute(HomePage(), settings);
     // Mesaj sayfası yönlendirmesi '/message'
     case MessageRoute:
       return authController.firebaseUser.value!.uid == ''

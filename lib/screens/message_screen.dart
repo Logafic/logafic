@@ -2,11 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
+import 'package:logafic/widgets/appBarHomePageWidget.dart';
 import 'package:logafic/widgets/background.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/messageScreenWidget.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/showSettingWidget.dart';
+import 'package:logafic/widgets/top_bar_contents.dart';
 import 'package:logafic/widgets/userMessageScreenWidget.dart';
 
 // Web sayfası adresi ' http://logafic.click/#/message '
@@ -110,109 +112,11 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final body = new Scaffold(
-      appBar: new AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.black54,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            );
-          },
-        ),
-        title: Text(
-          'Mesajlar',
-          style: TextStyle(
-            color: Colors.black54,
-            fontSize: 30,
-            fontFamily: 'Montserrat',
-            fontWeight: FontWeight.w400,
-            letterSpacing: 3,
-          ),
-        ),
-        actions: [
-          TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, HomeRoute);
-              },
-              child: Text(
-                'Anasayfa',
-                style: TextStyle(color: Colors.black54),
-              )),
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: InkWell(
-                child: PopupMenuButton(
-              icon: Icon(
-                Icons.person,
-                color: Colors.black54,
-              ),
-              itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-                PopupMenuItem(
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.pushNamed(context, ProfileRoute, arguments: {
-                        'userId': authController.firebaseUser.value!.uid
-                      });
-                    },
-                    leading: Icon(Icons.person),
-                    title: Text('Profilim'),
-                  ),
-                ),
-                PopupMenuItem(
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.pushNamed(context, NotificationRoute);
-                    },
-                    leading: Icon(Icons.notification_important),
-                    title: Text('Bildirimler'),
-                  ),
-                ),
-                PopupMenuItem(
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.pushNamed(context, MessageRoute);
-                    },
-                    leading: Icon(Icons.message),
-                    title: Text('Mesajlar'),
-                  ),
-                ),
-                PopupMenuItem(
-                  child: ListTile(
-                    onTap: () {
-                      showDialog(
-                          context: context,
-                          builder: (_) {
-                            return ShowSettingsWidget();
-                          });
-                    },
-                    leading: Icon(Icons.settings),
-                    title: Text('Ayarlar'),
-                  ),
-                ),
-                const PopupMenuDivider(),
-                PopupMenuItem(
-                  child: ListTile(
-                    onTap: () async {
-                      await authController
-                          .signOut()
-                          .whenComplete(() => Get.offAllNamed(FirstRoute));
-                    },
-                    title: Text('Çıkış Yap'),
-                  ),
-                ),
-              ],
-            )),
-          ),
-        ],
-      ),
-      backgroundColor: Colors.transparent,
+      appBar: ResponsiveWidget.isSmallScreen(context)
+          ? appBarHomePageWidget()
+          : PreferredSize(
+              child: TopBarContents(1),
+              preferredSize: Size(MediaQuery.of(context).size.width, 1000)),
       body: Center(
         // Sayfa boyutuna göre genişlik ayarlanıyor.
         child: new Container(
